@@ -1,0 +1,280 @@
+\documentclass[addpoints,12pt]{exam}
+\printanswers
+\usepackage{amsmath,amssymb,complexity,amsthm}
+\usepackage{graphicx}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{definition}[theorem]{Definition}
+
+\renewcommand{\W}{\mathcal{W}}
+
+\begin{document}
+\hrule
+\vspace{3mm}
+\noindent
+{\sf IITM-CS6014 : Advanced Theory of Computation  \hfill Given on: Sep 20, 5pm}
+\vspace{3mm}\\
+\noindent
+{\sf Problem Set \#3 \hfill Due on : Oct 3, 5pm}
+\vspace{3mm}
+\hrule
+{\small
+\begin{itemize}
+\item Rules of the game remain the same. Submissions must be single file in \LaTeX format at the upload link set up in cse moodle page of the course. Note that we do not accept any other format (no pdfs !).
+\end{itemize}}
+\hrule
+
+\begin{questions}
+\question[10]
+Recall
+\[ K = \{ x~|~M_x \text{ halts on } x\}\] Prove the following.
+\begin{parts}
+\part $K$ is {\sc SD}-complete.
+
+
+\textbf{\newline (Answer)} 
+\newline
+\newline
+  First, lets show that $K$ is Semidecidable and then lets prove that $ HP \le_m K $. \newline
+  Proving both of these implies that $K$ is {\sc SD}-complete.
+
+\quad 1. To show that $k$ is semidecidable.
+
+Here is the description of a turing machine $M$ such that $ L(M) = K$  
+
+\quad \quad \quad $M$ on input $(x)$ :
+\newline
+          $\rightarrow$ Simply run $M_x$ on $x$. 
+\newline
+    $\rightarrow$ Accept if $M_x$ halts on $x$.
+
+$ L(M) = \{ x ~|~ M_x \text{ halts on } x \}
+ = K $
+and $M$ is a turing machine.
+\newline
+Thus $K$ is semidecidable.
+
+\quad 2. To show that $K$ is {\sc SD}-complete.
+
+Lets reduce Halting Problem to $K$.
+\newline
+Given $ (M,x)$ as input, let's come up with a new machine $M'$ which does the following :
+
+\quad \quad \quad $M'$ on input $y$ :
+\newline
+$\rightarrow$ Run $M$ on $x$. \newline
+$\rightarrow$ If $M$ halts on $x$, run $M_y$ on $y$. \newline
+$\rightarrow$ Accept $y$ if $M_y$ halts on $y$. \newline
+
+\[
+   M' = \left\{ 
+ \begin{array}{l l}
+    y ~|~ M_y \text{ halts on $y$} & \quad \text{if $M$ halts on $x$}\\
+    \varnothing & \quad \text{if $M$ loops on $x$}\\
+ \end{array} \right.
+\]
+
+Thus,
+
+\[   (M,x) \in HP \Leftrightarrow M' \in K  \]
+Thus, proved that $HP\le_m K$.
+\newline
+Using 1 and 2, $K$ is $SD-$ complete.
+ 
+
+
+
+
+
+\part Let $K^X = \{ x~|~ M_x^X \text{ is an oracle TM with oracle $X$ 
+and $M_x^X$ halts on $x$} \}$. Show that $K^K$ is $\Sigma_2$-complete. 
+
+\textbf{\newline (Answer)} 
+\newline
+\newline
+
+$K^K = \{ y ~|~ M_y^K \text{ is an oracle TM with oracle $K$ and $M_y^K$ halts on $y$ } \}
+$
+
+
+1. $K^k \in \Sigma_2 $
+\newline
+This is true because $K_k$ is the language such that $M_y$ requires query access to $K$ to check if $y$ halts on it.
+We know that $K$ in is $\Sigma_1$ (by the previous question), hence $K^k$ belongs to $\Sigma_2$
+
+2. $MP_2 \le_m K^K $
+\newline
+
+
+$MP_2 = \{ (M^K,x) ~|~ M^K \text{ is an oracle TM with oracle $K$ and $M^k$ accepts $x$} \}$ \newline
+We can use $K$ as the oracle because, as we proved before, $K$ is $SD$-complete, so any other $SD$-complete language can be reduced to it,
+so without loss of generality we can use $K$ as the oracle.
+\newline
+
+Given $ (M^K,x)$ as input, let's come up with a new machine $M'$ which does the following :
+\newline
+$M'$ on input $y$ :
+\newline
+$\rightarrow$ Run $M^K$ on $x$. \newline
+$\rightarrow$ If $M^K$ accepts $x$, run $M_y^K$ on $y$. \newline
+$\rightarrow$ Here, whenever $M_y^K$ wants to make a query to $K$ it can do so easily because  $M^K$ has the same oracle tape $K$ !
+So, the oracle tape is hard-coded along with $M^k$ or, $K$ as an oracle is available to us.\newline
+$\rightarrow$ Accept $y$ if $M_y^K$ halts on $y$. \newline
+
+\[
+   M' = \left\{ 
+ \begin{array}{l l}
+    y ~|~ M_y^K \text{ halts on $y$} & \quad \text{if $M$ accepts on $x$}\\
+    \varnothing & \quad \text{if $M$ does not accept on $x$}\\
+ \end{array} \right.
+\]
+
+
+Thus,
+ 
+\[   (M,x) \in MP_2 \Leftrightarrow M' \in K^K  \]
+Thus, proved that $MP_2\le_m K^k$.
+
+Now that we showed this, we are done because $MP_2$ is complete for $\Sigma_2$ and if it reduces to $K^K$, then
+$K^k$ must also be complete for $\Sigma_2$
+
+\end{parts}
+
+\question[10] A set $P$ is \textit{partially productive} if there is a partial recursive function(i.e. computed by a Turing machine $N$ - which need not be total) $\psi$ called the {\em productive function} such that:
+\[ \forall x ~~\left( \mathcal{W}_x \subseteq P \implies N \textrm{ halts on $x$ } 
+\&~~\psi(x) \in P \setminus \mathcal{W}_x \right) \]
+Show that any productive set $P$ has an injective recursive productive function. \\ (Hint : First prove that it can be made recursive and then attempt on making it injective).
+
+\question[5]
+Prove that there must exist a recursive function such that $\{ \W_{f(n)} \}_{n \in \mathbb{N}}$ consists of precisely decidable sets.
+
+\textbf{\newline (Answer)} 
+\newline
+\newline
+
+$W_x = \{ y ~|~ M_x \text{ halts on } y \} $ \newline
+Let $z$ be the encoding of the trivial turing machine which accepts all string $\in \Sigma^* $
+\newline
+Now, $\forall n \in N$ \newline let $f(n) = z $
+\newline
+Then, $W_{f(n)} = \Sigma^* \text{ }\forall n \in N $ \newline
+i.e $W_{f(n)}$ is decidable $\forall n \in N$ \newline
+Therefore, \{ $W_{f(n)}$ contains only decidable sets \} \newline
+Thus, showed that there exists such a $ f$. \newline
+Hence proved.
+\question[5]
+A simple set is {\em effectively simple} if there is a recursive function $f$ such that:
+\[ \forall n\in \mathbb{N} : \W_n \subseteq \overline{A} \implies |\W_n| \le f(n) \]
+Show that Post's simple set is effectively simple. \\[2mm]
+(Extra Credit) If a set $A$ is effectively simple, argue that $K \le_T A$. This justifies why Friedberg-Muchnik had to do a different construction. 
+(Hint: Normal homework rules does not apply to this question. You can look up anywhere, but cite your sources. !).
+
+\textbf{\newline (Answer)} 
+\newline
+
+
+Let $A$ be the simple set designed by Post. \newline
+We have to prove that $\exists$ a decidable function $f$ such that : \newline
+$\forall n$ , $W_n \subseteq \overline{A} \Rightarrow |W_n| \leq f(n)$ 
+
+Claim: if $W_n \subseteq \overline{A} $ then $W_n$ must be a finite set.\newline
+Proof : \newline
+This is because, if to the contrary $W_n$ was infinite. \newline
+We know that $W_n$ corresponds to some language $L$ in $\Sigma^1$. \newline
+Therefore, by the definition of Post's simple set, $W_n$ must intersect with $A$ \newline
+i.e $\exists y \in W_n$ such that $ y \in A$ \newline
+$\Rightarrow W_n \nsubseteq \overline{A} $ \newline
+Which is a contradiction.\newline
+
+So, now lets define the decidable function $f$ \newline
+We know that, given $n$ as input to it, we will only be computing $f(n)$, when we are also given that $W_n$ is a finite set.
+\newline
+Also, given $n$, we are essentially given the machine $M_n$ also.\newline
+So, the function $f$  on input $n$ does the following : \newline
+1. First blindly assumes that all strings of length $<2n$ are accepted/rejected by $M_n$ \newline
+This is the worst case scenario, so $f$ now stores $2n$ as its output. \newline
+
+2. Then we claim that : \newline
+  $\forall y\in \Sigma^*$ and $ |y| > 2n$ , $y \in W_n$ only if $y$ is rejected by $M_n$ \newline
+Proof: \newline
+Suppose $\exists$ a $y \in \Sigma^*$ such that $|y|>2n$ , $y \in W_n$ and $y$ is accepted by $M_n$ \newline
+Then, this means that this $y$ must have been a part of Post's simple Set $A$. \newline
+ $\Rightarrow W_n\nsubseteq \overline{A} $ \newline
+Which is a contradiction to our assumption that $W_n \subseteq \overline{A} $ \newline
+Hence, proved the claim. \newline
+
+So, consider the machine $M_n' = M_n$ (with accept and reject states swapped).\newline
+This is just one step and is decidable. \newline
+$ \forall y\in \Sigma^*$ , $|y|>2n$ ,  $M_n$ rejects $y \Leftrightarrow M_n'$ accepts $y$ \newline
+
+We now claim that, $M_n'$ cannot accept any string of length greater than $2n'$. \newline
+Proof :
+Suppose $M_n'$ accepts a string $z$ such that $|z|> 2n' $, \newline
+$\Rightarrow$ in the Post Set $A$  $z$ must have been enumerated,i.e $z \in A$\newline
+But, $z$ is accepted by $M_n'$  $\Rightarrow z$ is rejected by $M_n$ \newline
+$\Rightarrow z \in W_n$  $\Rightarrow z \in \overline{A}$
+Which is a contradiction. Hence proved. \newline
+
+So, $M_n'$ accepts atmost $2n'$ strings $\Rightarrow M_n$ rejects atmost $2n'$ strings of length $>2n$. \newline
+Summing both, $W_n$ can have atmost $2n + 2n'$ strings in it. \newline
+So, let's choose $f(n) = 2n + 2n' + 1$, where computing $n'$ is decidable as shown above. \newline
+Thus, we gave a recursive function $f$ satifsying the required condition.
+
+
+\question[10]
+Consider the following computational problems :
+\begin{parts}
+\part Given a Turing machine $M$, test if $L(M)$ is Productive.
+
+\textbf{\newline (Answer)} 
+\newline
+\newline
+
+Claim : No semidecidable language is Productive.\newline
+Suppose the claim is true, then it is easy to see that given any turing machine $M$, $L(M)$ is not productive.\newline
+Thus, the problem is decidable and so it belongs to $\Sigma_1$ \newline
+
+Proof of claim: \newline
+To the contrary suppose $\exists$ a productive set $P$ , and $P\subseteq \Sigma^* $ \newline
+Now, we know that $\exists x$ such that $W_x = P$ \newline
+(Since, for every semidecidable language there exists a corresponding $W_x$ associated with it ) \newline
+Now, for this $x$ , $W_x \subseteq P$. \newline
+This implies $\sigma(x) \in P - W_x$.\newline
+But, $P - W_x = \varnothing $\newline
+i.e its the null set, so it contains no element. \newline
+So, $\sigma(x) \notin P - W_x $ \newline
+Which is a contradiction. \newline
+Therefore, our assumption that $\exists$ a semidecidable productive set $P$ was wrong. \newline
+Hence proved the claim.
+
+
+\part Given a Turing machine $M$, test if $L(M)$ is Simple. 
+
+\textbf{\newline (Answer)} 
+\newline
+\newline
+
+Lets apply Rice Theorem 2 to this problem. \newline
+The property $P$ of a language, where $P$ checks if a given language is Simple is a non-monotone property.\newline
+Ex: consider $A = $ Post's Simple Set.\newline
+As we showed in the proof for Post's Theorem $A \in S.D$ and $A$ is simple,\newline so $P(A)=T$. \newline
+Consider $B = \Sigma^*.$  \newline
+$\overline B = \{\varnothing \} $ , So $|B| = 0$ \newline
+Therefore, the second condition for a simple set isnt satisfied for $B$, so $B$ isnt a simple set. \newline
+i.e $P(B) = F$.\ newline
+$A\subset B$ and $P(A)=T$ and $P(B) = F$, thus $P$ is a non-monotone property. \newline
+Hence, By Rice Theorem 2, checking for property $P$ is not semidecidable.\newline
+Therefore, This problem is not semidecidable. 
+
+
+
+\end{parts}
+Are they decidable? semi-decidable? \\[2mm]
+(Extra Credit) Place them in the arithmetic hierarchy.
+\end{questions}
+\end{document}

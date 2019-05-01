@@ -1,0 +1,124 @@
+\documentclass[12pt]{exam}
+\printanswers
+\usepackage{amsmath,amssymb,complexity}
+%\pagestyle{headandfoot}
+%\runningheadrule
+%\firstpageheader{CS6014}{Quiz I}{Sep 6, 2011, 8-8:50am}
+%\runningheader{CS6014}
+%{Quiz I, Page \thepage\ of \numpages}
+%{Sep 6, 2011, 8-8:50am}
+%\firstpagefooter{}{}{}
+%\runningfooter{}{}{}
+
+\begin{document}
+
+\hrule
+\vspace{3mm}
+\noindent 
+{\sf Networks Lab 5  }
+\vspace{3mm} \\
+\noindent 
+{\sf Report \hfill Author :B.Saikrishna }
+\vspace{3mm}
+\hrule
+\section{Objective}
+To run the programs demonstrating the Go Back N protocol for various values of packet generation rate, 
+packet length and packet drop probabilities and to analyse the results obtained.
+
+\section{Testing}
+The programs were run on the following parameters:\newline
+Packet length $\in \{128,1024\} $.
+Packet generation rate $\in \{0.1,0.005\} $. \newline
+i.e 0.1 indicates 1 packet was generated every 0.1 seconds.\newline
+Packet drop probabilities $\in \{0.001,0.000001\} $.
+Packet length $= 100 $.\newline
+Window size $ = 10 $. \newline
+The average RTT value and the transmission efficiency ratio was calculated.\newline
+They are defined as follows: \newline
+Average RTT Value $=$ Sum of round trip time for each packet acknowledged(measured in microseconds) $/$ total number of packets acknowledged \newline
+Transmission efficiency ratio $=$ total number of transmission $/$ total number of acknowledgments received. \newline
+
+\section{Observations}
+\begin{table}[ht]
+\caption{Packet generation rate $= 0.1$}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c c c}
+% centered columns (5 columns)
+\hline\hline
+\newline
+%inserts double horizontal lines
+Case & Number\_of\_packets & Packet\_length & Drop\_probability & Avg.RTT Value & Efficiency \\ [0.5ex]
+% inserts table
+%heading
+
+\hline
+
+% inserts single horizontal line
+1 & 100 & 128 & 0.00001 & 15.43  & 1.00\\
+% inserting body of the table
+2 & 100 & 128 & 0.001 & 11.6 & 1.00\\
+3 & 100 & 1024 & 0.000001 & 21.47 & 1.00\\
+4 & 100 & 1024 & 0.001 & 12.8 & 1.00\\
+
+5 & 1000 & 128 & 0.000001 & 4.65  & 1.00\\
+% inserting body of the table
+6 & 1000 & 128 & 0.001 & 6.06 & 1.12 \\
+7 & 1000 & 1024 & 0.000001 & 5.68 & 1.00\\
+8 & 1000 & 1024 & 0.001 & 11.05 & 1.03\\ [1ex]
+% [1ex] adds vertical space
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+% is used to refer this table in the text
+\end{table}
+\begin{table}[ht]
+\caption{Packet generation rate $= 0.005$}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c c c}
+% centered columns (5 columns)
+\hline\hline
+\newline
+%inserts double horizontal lines
+Case & Number\_of\_packets & Packet\_length & Drop\_probability & Avg RTT Value & Efficiency \\ [0.5ex]
+% inserts table
+%heading
+
+\hline
+
+% inserts single horizontal line
+1 & 100 & 128 & 0.00001 & 20.57  & 1.00\\
+% inserting body of the table
+2 & 100 & 128 & 0.001 & 16.95 & 1.00\\
+3 & 100 & 1024 & 0.000001 & 23.28 & 1.00\\
+4 & 100 & 1024 & 0.001 & 29.6 & 1.00\\
+
+5 & 1000 & 128 & 0.000001 & 5.20  & 1.00\\
+% inserting body of the table
+6 & 1000 & 128 & 0.001 & 5.34 & 1.31 \\
+7 & 1000 & 1024 & 0.000001 & 7.37 & 1.02\\
+8 & 1000 & 1024 & 0.001 & 7.53 & 1.43\\ [1ex]
+% [1ex] adds vertical space
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+% is used to refer this table in the text
+\end{table}
+
+\section{Results}
+\begin{enumerate}
+ \item 
+Average RTT Value increases with increase in length of packets being transmitted and doesnt seem to be dependent on the other factors considered.
+\item
+  The efficiency increases as the packet drop probabilites increases, which is quite logical as more packets tend to get dropped.\newline
+Also, it seemed to increase when the number of packets got larger.
+\end{enumerate}
+
+\section{Conclusion}
+Since the experiment conducted was on a quite small scale, it may not truly reflect the expected theoretical results. 
+\end{document}

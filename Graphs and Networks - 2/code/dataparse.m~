@@ -1,0 +1,513 @@
+% Problem 1
+  
+u=importdata('ml-100k/u.data');
+echo off
+for( i = 1:100000)
+R(u(i,1),u(i,2))= u(i,3);
+end;
+
+%Calculate the weight matrix
+W=R>0;
+ 
+
+[U,V,NI,TE,FR1]=wnmfrule1(R,10);
+res1 =sum(sum(W.*(R-(U*V)).^2));
+
+[U,V,NI,TE,FR2]=wnmfrule1(R,50);
+res2 =sum(sum(W.*(R-(U*V)).^2));
+
+[U,V,NI,TE,FR3]=wnmfrule1(R,100);
+res3 =sum(sum(W.*(R-(U*V)).^2));
+
+
+
+% Problem 2
+
+%wnmfrule2 switches the weight ad value matrix
+
+[U,V,NI,TE,FR4]=wnmfrule2(R,10);
+res4 =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR5]=wnmfrule2(R,50);
+res5 =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR6]=wnmfrule2(R,100);
+res6 =sum(sum(R.*(W-(U*V)).^2));
+ 
+
+
+% Problem 3
+
+%randomly permuted matrix to implement 10 fold cross validation and use one
+% tenth of the data in each iteration for testing and the rest for training.
+
+%randomly permute every row of the original u matrix
+u1=u(randperm(size(u,1)),:);
+
+Rpred1=zeros(size(R,1),size(R,2),10);
+Rpred2=zeros(size(R,1),size(R,2),10);
+Rpred3=zeros(size(R,1),size(R,2),10);
+Rpred4=zeros(size(R,1),size(R,2),10);
+Rpred5=zeros(size(R,1),size(R,2),10);
+Rpred6=zeros(size(R,1),size(R,2),10);
+
+for( j = 0:9)
+    
+W1 = W;
+R1 = R;
+for ( i = ((10000*j)+1):(10000*(j+1)))
+W1(u1(i,1),u1(i,2))= 0;
+end;
+R1=R1.*W1;
+%sum1, sum2 , sum3, sum4 , sum5 and sum6 will keep track of the average
+%absolute error and error for other calculations.
+% first reco system with k=10
+
+[U,V]=wnmfrule1(R1,10);
+
+Rpred1(:,:,j+1)=U*V;
+sum1(j+1)=0;
+for( i = ((10000*j)+1):(10000*(j+1)))
+sum1(j+1)=sum1(j+1)+abs(Rpred1(u1(i,1),u1(i,2),j+1)-R(u1(i,1),u1(i,1)));
+end;
+sum1(j+1)=sum1(j+1)/10000;
+
+% second reco system with k=50
+
+[U,V]=wnmfrule1(R1,50);
+Rpred4(:,:,j+1)=U*V;
+sum2(j+1)=0;
+for( i = ((10000*j)+1):(10000*(j+1)))
+sum2(j+1)=sum2(j+1)+abs(Rpred4(u1(i,1),u1(i,2),j+1)-R(u1(i,1),u1(i,1)));
+end;
+sum2(j+1)=sum2(j+1)/10000;
+
+% third reco system with k=100
+
+[U,V]=wnmfrule1(R1,100);
+Rpred3(:,:,j+1)=U*V;
+sum3(j+1)=0;
+for( i = ((10000*j)+1):(10000*(j+1)))
+sum3(j+1)=sum3(j+1)+abs(Rpred3(u1(i,1),u1(i,2),j+1)-R(u1(i,1),u1(i,1)));
+end;
+sum3(j+1)=sum3(j+1)/10000;
+
+
+% as per mail use the regularized  part 5 reco system for part 3,4 and 6
+% fourth reco system (wnmfrule4)
+
+[U,V]=wnmfrule4(R1,10,0.1);
+Rpred4(:,:,j+1)=U*V;
+sum4(j+1)=0;
+for( i = ((10000*j)+1):(10000*(j+1)))
+sum4(j+1)=sum4(j+1)+abs(Rpred4(u1(i,1),u1(i,2),j+1)-W(u1(i,1),u1(i,1)));
+end;
+sum4(j+1)=sum4(j+1)/10000;
+
+% fifth reco system
+
+[U,V]=wnmfrule4(R1,50,0.1);
+Rpred5(:,:,j+1)=U*V;
+sum5(j+1)=0;
+for( i =((10000*j)+1):(10000*(j+1)))
+sum5(j+1)=sum5(j+1)+abs(Rpred5(u1(i,1),u1(i,2),j+1)-W(u1(i,1),u1(i,1)));
+end;
+sum5(j+1)=sum5(j+1)/10000;
+
+% sixth reco system
+
+[U,V]=wnmfrule4(R1,100,0.1);
+Rpred6(:,:,j+1)=U*V;
+sum6(j+1)=0;
+for( i = ((10000*j)+1):(10000*(j+1)))
+sum6(j+1)=sum6(j+1)+abs(Rpred6(u1(i,1),u1(i,2),j+1)-W(u1(i,1),u1(i,1)));
+end;
+sum6(j+1)=sum6(j+1)/10000;
+end
+
+ % Average among the 10 tests for each system
+ mean(sum1)
+ mean(sum2)
+ mean(sum3)
+ mean(sum4)
+ mean(sum5)
+ mean(sum6)
+
+% Average  for each test among all entries( systems) and also keep track of the min &
+% the max among all the tests
+maxerr=0;
+minerr=Inf;
+maxi=0;
+mini=0;
+ temp1=((sum1(1)+sum2(1)+sum3(1)+sum4(1)+sum5(1)+sum6(1))/6);
+if(temp1<minerr) min=temp1;mini=1; end
+if(temp1>maxerr) max=temp1;maxi=1; end
+ temp2=((sum1(2)+sum2(2)+sum3(2)+sum4(2)+sum5(2)+sum6(2))/6);
+if(temp2<minerr) min=temp2;mini=2; end
+if(temp2>maxerr) max=temp2;maxi=2; end
+ temp3=((sum1(3)+sum2(3)+sum3(3)+sum4(3)+sum5(3)+sum6(3))/6);
+if(temp3<minerr) min=temp3;mini=3; end
+if(temp3>maxerr) max=temp3;maxi=3; end
+ temp4=((sum1(4)+sum2(4)+sum3(4)+sum4(4)+sum5(4)+sum6(4))/6);
+if(temp4<minerr) min=temp4;mini=4; end
+if(temp4>maxerr) max=temp4;maxi=4; end
+ temp5=((sum1(5)+sum2(5)+sum3(5)+sum4(5)+sum5(5)+sum6(5))/6);
+if(temp5<minerr) min=temp5;mini=5; end
+if(temp5>maxerr) max=temp5;maxi=5; end
+ temp6=((sum1(6)+sum2(6)+sum3(6)+sum4(6)+sum5(6)+sum6(6))/6);
+if(temp6<minerr) min=temp6;mini=6; end
+if(temp6>maxerr) max=temp6;maxi=6; end
+ temp7=((sum1(7)+sum2(7)+sum3(7)+sum4(7)+sum5(7)+sum6(7))/6);
+if(temp7<minerr) min=temp7;mini=7; end
+if(temp7>maxerr) max=temp7;maxi=7; end
+ temp8=((sum1(8)+sum2(8)+sum3(8)+sum4(8)+sum5(8)+sum6(8))/6);
+if(temp8<minerr) min=temp8;mini=8; end
+if(temp8>maxerr) max=temp8;maxi=8; end
+ temp9=((sum1(9)+sum2(9)+sum3(9)+sum4(9)+sum5(9)+sum6(9))/6);
+if(temp9<minerr) min=temp9;mini=9; end
+if(temp9>maxerr) max=temp9;maxi=9; end
+ temp10=((sum1(10)+sum2(10)+sum3(10)+sum4(10)+sum5(10)+sum6(10))/6);
+if(temp10<minerr) min=temp10;mini=10; end
+if(temp10>maxerr) max=temp10;maxi=10; end
+
+
+%highest and lowest values of average error among the 10 tests for each
+%system
+max(sum1)   
+min(sum1)
+max(sum2)
+min(sum2)
+max(sum3)
+min(sum3)
+max(sum4)
+min(sum4)
+max(sum5)
+min(sum5)
+max(sum6)
+min(sum6)
+
+%which of the 10 tests has the highest or lowest error.
+maxi
+maxerr
+mini
+minerr
+
+
+%Problem 4
+
+%reco system from 1 to 3
+
+x1=zeros(1,10);
+y1=zeros(1,10);
+xa1=zeros(1,10);
+ya1=zeros(1,10);
+x2=zeros(1,10);
+y2=zeros(1,10);
+xa2=zeros(1,10);
+ya2=zeros(1,10);
+x3=zeros(1,10);
+y3=zeros(1,10);
+xa3=zeros(1,10);
+ya3=zeros(1,10);
+
+% threshold for 1st 3 recommendation systems is 3.01 to 3.91 in increments of
+% .1 
+for ( k =1:10)
+for ( j = 0:9)
+for ( i= ((10000*j)+1):(10000*(j+1)))
+   if(Rpred1(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+        x1(k)=x1(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y1(k)=y1(k)+1;
+        end
+   end 
+   if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+           xa1(k)=xa1(k)+1;
+        if(Rpred1(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+            ya1(k)=ya1(k)+1;
+        end
+    end 
+end
+end
+
+for ( j = 0:9)
+for( i= ((10000*j)+1):(10000*(j+1)))
+    if(Rpred2(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+        x2(k)=x2(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y2(k)=y2(k)+1;
+        end
+    end 
+     if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))  
+        xa2(k)=xa2(k)+1;
+       if(Rpred2(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+            ya2(k)=ya2(k)+1;
+        end
+    end 
+end
+end
+
+for ( j = 0:9)
+for( i= ((10000*j)+1):(10000*(j+1)))
+    
+    if(Rpred3(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+        x3(k)=x3(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y3(k)=y3(k)+1;
+        end
+    end    
+    if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+        xa3(k)=xa3(k)+1;
+        if(Rpred3(u1(i,1),u1(i,2),j+1)>(2.91+(.1*k)))
+            ya3(k)=ya3(k)+1;
+        end
+    end  
+end
+end
+
+end
+
+%Plot the precision over recall graph for different threshold values.
+plot((ya1./xa1),(y1./x1),'o')
+plot((ya1./xa1),(y1./x1))
+plot((ya2./xa2),(y2./x2),'o')
+plot((ya2./xa2),(y2./x2))
+plot((ya3./xa3),(y3./x3),'o')
+plot((ya3./xa3),(y3./x3))
+ 
+%reco system from 4-6
+%threshold of 4th recommendation system checks from .9 in 10 increments
+%of .2 and compares with R with 3.01 to 3.91
+
+x4=zeros(1,10);
+y4=zeros(1,10);
+xa4=zeros(1,10);
+ya4=zeros(1,10);
+x5=zeros(1,10);
+y5=zeros(1,10);
+xa5=zeros(1,10);
+ya5=zeros(1,10);
+x6=zeros(1,10);
+y6=zeros(1,10);
+xa6=zeros(1,10);
+ya6=zeros(1,10);
+for ( k =1:10)
+for ( j = 0:9)
+for ( i= ((10000*j)+1):(10000*(j+1)))
+   if(Rpred4(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+        x4(k)=x4(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y4(k)=y4(k)+1;
+        end
+   end    
+   if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+        xa4(k)=xa4(k)+1;
+        if(Rpred4(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+            ya4(k)=ya4(k)+1;
+        end
+    end 
+end
+end
+
+for ( j = 0:9)
+for( i= ((10000*j)+1):(10000*(j+1)))
+    if(Rpred5(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+        x5(k)=x5(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y5(k)=y5(k)+1;
+        end
+    end 
+    if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+        xa5(k)=xa5(k)+1;
+         if(Rpred5(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+            ya5(k)=ya5(k)+1;
+        end
+    end  
+end
+end
+
+for ( j = 0:9)
+for( i= ((10000*j)+1):(10000*(j+1)))
+    
+    if(Rpred6(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+        x6(k)=x6(k)+1;
+        if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+            y6(k)=y6(k)+1;
+        end
+    end 
+    if(R(u1(i,1),u1(i,2))>(2.91+(.1*k)))
+        xa6(k)=xa6(k)+1;
+        if(Rpred6(u1(i,1),u1(i,2),j+1)>(.9+(.2*k)))
+            ya6(k)=ya6(k)+1;
+        end
+    end 
+end
+end
+
+end
+
+
+%Plot the precision over recall graph for different threshold values.
+plot((ya4./xa4),(y4./x4),'o')
+plot((ya4./xa4),(y4./x4))
+plot((ya5./xa5),(y5./x5),'o')
+plot((ya5./xa5),(y5./x5))
+plot((ya6./xa6),(y6./x6),'o')
+plot((ya6./xa6),(y6./x6))
+
+% Problem 5 : Part 1
+%res5 #num1 #letter represent the corresponding error of each system with
+%different Lambda and different k values respectively.
+
+%for k=10 recosystem
+[U,V,NI,TE,FR1]=wnmfrule3(R,10,0.01);
+res51a =sum(sum(R.*(W-(U*V)).^2));
+
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,10,0.1);
+res52a =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,10,1);
+res53a =sum(sum(R.*(W-(U*V)).^2));
+%for k=50 recosystem
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,50,0.01);
+res51b =sum(sum(R.*(W-(U*V)).^2));
+
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,50,0.1);
+res52b =sum(sum(R.*(W-(U*V)).^2));
+
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,50,1);
+res53b =sum(sum(R.*(W-(U*V)).^2));
+
+%for k=100 recosystem
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,100,0.01);
+res51c =sum(sum(R.*(W-(U*V)).^2));
+
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,100,0.1);
+res52c =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR1]=wnmfrule3(R,100,1);
+res53c =sum(sum(R.*(W-(U*V)).^2));
+
+% Problem 5 : Part 2
+
+%for k=10 recosystem
+
+[U,V,NI,TE,FR4]=wnmfrule4(R,10,.01);
+res54a =sum(sum(R.*(W-(U*V)).^2));
+[U,V,NI,TE,FR4]=wnmfrule4(R,10,.1);
+res55a =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR4]=wnmfrule4(R,10,1);
+res56a =sum(sum(R.*(W-(U*V)).^2));
+
+ %for k=50 recosystem
+ 
+[U,V,NI,TE,FR4]=wnmfrule4(R,50,.01);
+res54b =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR4]=wnmfrule4(R,50,.1);
+res55b =sum(sum(R.*(W-(U*V)).^2));
+[U,V,NI,TE,FR4]=wnmfrule4(R,50,1);
+res56b =sum(sum(R.*(W-(U*V)).^2));
+ 
+ %for k=100 recosystem
+ 
+[U,V,NI,TE,FR4]=wnmfrule4(R,100,.01);
+res54c =sum(sum(R.*(W-(U*V)).^2));
+
+[U,V,NI,TE,FR4]=wnmfrule4(R,100,.1);
+res55c =sum(sum(R.*(W-(U*V)).^2));
+[U,V,NI,TE,FR4]=wnmfrule4(R,100,1);
+res56c =sum(sum(R.*(W-(U*V)).^2));
+
+
+
+
+%problem 6
+
+%hit rate variables
+xhit = zeros(1,30);
+yhit = zeros(1,30);
+%false alarm rate variables
+xfalse = zeros(1,30);
+yfalse = zeros(1,30);
+%let threshold=3
+for l = 1:30
+    
+Top_movies_R = zeros(size(R,1),l);
+Top_movies_Rpred4 = zeros(size(R,1),l,10);
+xx1 = zeros(1,10);
+yy1 = zeros(1,10);
+
+
+%{
+%update top_movies in R    
+Rtemp = R;
+[temp1,temp2] = sort(Rtemp,2, 'descend');
+
+for(i=1:943)
+    for(j = 1:l)
+Top_movies_R(i,j) = temp2(i,j);
+    end
+end
+%}
+for(k= 0:9)                 %third index of Rpred4
+Rtemp = Rpred4(:, :, k+1);
+[temp1,temp2] = sort(Rtemp,2, 'descend');
+
+for(i = 1 : 943)            % each row - denoting each user
+%Top_movies gets updated    
+for(j = 1:l)
+Top_movies_Rpred4(i,j,k+1) = temp2(i,j);
+end
+
+%calculating precision
+for(j=1:l)
+    val = Top_movies_Rpred4(i,j,k+1);
+    if(R(i,val)>0)
+    xx1(k+1)= xx1(k+1)+1;
+        %if(ismember(val,Top_movies_R(i) ))
+        if(R(i,val)>4.5)
+            yy1(k+1) = yy1(k+1)+1;
+        end    
+    end
+    
+end
+
+end
+end
+
+if( l ==5)    
+precision = (sum(yy1)/sum(xx1)); % run for just l=5
+end
+
+%let threshold = 4.5 i.e define "liked" as above 4.5 in the main question
+%and as >.95 in the sub question
+for ( j = 0:9)
+for ( i= ((10000*j)+1):(10000*(j+1)))
+   if(R(u1(i,1),u1(i,2))>(4.5))
+        xhit(l)=xhit(l)+1;
+      if(ismember( u1(i,2), Top_movies_Rpred4(u1(i,1),:,j+1)  ))        %is that movie index a member of the top l movies
+       %if(Rpred4(u1(i,1),u1(i,2),j+1)>(.90))
+            yhit(l)=yhit(l)+1;
+      end
+   end    
+   if(R(u1(i,1),u1(i,2))<(4))
+        xfalse(l)=xfalse(l)+1;
+        if(ismember( u1(i,2), Top_movies_Rpred4(u1(i,1),:,j+1)  ))        %is that movie index a member of the top l movies
+            yfalse(l)=yfalse(l)+1;
+        end
+   end 
+end
+end
+
+end
+ plot((yfalse./xfalse),(yhit./xhit),'o')
+ plot((yfalse./xfalse),(yhit./xhit))
+ 

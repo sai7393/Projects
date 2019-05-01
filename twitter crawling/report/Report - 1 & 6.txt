@@ -1,0 +1,19 @@
+Q.1) The hashtag we chose for this question is: #brandbowl. The Topsy API was used to obtain the top five tweets. The 'limit' field in the code was set to '5'. The tweets are stored as a list in ret['response']['results']['list'].
+The 'top_tweets.txt' file contains each tweet item in the list in a single line.
+
+The tweet text, user posting the tweet and the posting date of the top five tweets is as follows:
+
+1. Text: "#brandbowl http://t.co/QoiFznuBKF", User: "darth", Posting date: 1422837061
+
+2. Text: "The new McDonald's positioning on \"I\"m loving YOU\" is a good messaging extension from I'm loving it #brandbowl #superbowlads", User: "jowyang", Posting date: 1422837394
+
+3. Text: "#GoDaddy goes small with a very tame, sweet ad #BrandBowl", User: "socialmedia2day", Posting date: 1422837650
+
+4. Text: "A Fiat just took some Viagra. Yep, that happened. #SuperBowl #BrandBowl", User: "LinkedInQueen", Posting date: 1422837660
+
+5. Text: "Last chance to Retweet this for chance to win $100 in #SuperBowl swag. Join #Jet @ http://t.co/d1dsM3YSWR #brandbowl http://t.co/8ulfL1UkPN", User: "DaveKerpen", Posting date: 1422838470
+
+
+
+Q.6) Each line of the 'tweets.txt' file is parsed by using the json.loads() function. The tweet's post date, text, number of retweets, and the user posting it are printed out in the 'Output - Q6.txt' file.
+(Refer 'Output - Q6.txt' for the output)

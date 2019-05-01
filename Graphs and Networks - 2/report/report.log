@@ -1,0 +1,451 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.4)  23 APR 2015 20:43
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 4 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 21.
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--23
+
+ []
+
+<plots/p1a.jpeg, id=1, 525.965pt x 434.62375pt>
+File: plots/p1a.jpeg Graphic file (type jpg)
+ <use plots/p1a.jpeg>
+Package pdftex.def Info: plots/p1a.jpeg used on input line 37.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1b.jpeg, id=2, 525.965pt x 434.62375pt>
+File: plots/p1b.jpeg Graphic file (type jpg)
+ <use plots/p1b.jpeg>
+Package pdftex.def Info: plots/p1b.jpeg used on input line 38.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1c.jpeg, id=3, 525.965pt x 434.62375pt>
+File: plots/p1c.jpeg Graphic file (type jpg)
+ <use plots/p1c.jpeg>
+Package pdftex.def Info: plots/p1c.jpeg used on input line 39.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--41
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
+
+ []
+
+[2 <./plots/p1a.jpeg> <./plots/p1b.jpeg> <./plots/p1c.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
+
+ []
+
+<plots/p1i.jpeg, id=17, 525.965pt x 434.62375pt>
+File: plots/p1i.jpeg Graphic file (type jpg)
+ <use plots/p1i.jpeg>
+Package pdftex.def Info: plots/p1i.jpeg used on input line 57.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1k.jpeg, id=18, 525.965pt x 434.62375pt>
+File: plots/p1k.jpeg Graphic file (type jpg)
+ <use plots/p1k.jpeg>
+Package pdftex.def Info: plots/p1k.jpeg used on input line 59.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1j.jpeg, id=19, 525.965pt x 434.62375pt>
+File: plots/p1j.jpeg Graphic file (type jpg)
+ <use plots/p1j.jpeg>
+Package pdftex.def Info: plots/p1j.jpeg used on input line 61.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1d.jpeg, id=20, 525.965pt x 434.62375pt>
+File: plots/p1d.jpeg Graphic file (type jpg)
+ <use plots/p1d.jpeg>
+Package pdftex.def Info: plots/p1d.jpeg used on input line 70.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1f.jpeg, id=21, 525.965pt x 434.62375pt>
+File: plots/p1f.jpeg Graphic file (type jpg)
+ <use plots/p1f.jpeg>
+Package pdftex.def Info: plots/p1f.jpeg used on input line 72.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p1e.jpeg, id=22, 525.965pt x 434.62375pt>
+File: plots/p1e.jpeg Graphic file (type jpg)
+ <use plots/p1e.jpeg>
+Package pdftex.def Info: plots/p1e.jpeg used on input line 74.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--75
+
+ []
+
+[3 <./plots/p1i.jpeg>] [4 <./plots/p1k.jpeg> <./plots/p1j.jpeg>] [5 <./plots/p1
+d.jpeg> <./plots/p1f.jpeg>] <plots/p1g.jpeg, id=33, 525.965pt x 434.62375pt>
+File: plots/p1g.jpeg Graphic file (type jpg)
+
+<use plots/p1g.jpeg>
+Package pdftex.def Info: plots/p1g.jpeg used on input line 90.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+ <plots/p1h.jpeg, id=34, 525.965pt x 434.62375pt>
+File: plots/p1h.jpeg Graphic file (type jpg)
+
+<use plots/p1h.jpeg>
+Package pdftex.def Info: plots/p1h.jpeg used on input line 92.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--96
+
+ []
+
+[6 <./plots/p1e.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 100--104
+
+ []
+
+<plots/p2a.jpeg, id=38, 525.965pt x 434.62375pt>
+File: plots/p2a.jpeg Graphic file (type jpg)
+ <use plots/p2a.jpeg>
+Package pdftex.def Info: plots/p2a.jpeg used on input line 114.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2b.jpeg, id=39, 525.965pt x 434.62375pt>
+File: plots/p2b.jpeg Graphic file (type jpg)
+ <use plots/p2b.jpeg>
+Package pdftex.def Info: plots/p2b.jpeg used on input line 115.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2c.jpeg, id=40, 525.965pt x 434.62375pt>
+File: plots/p2c.jpeg Graphic file (type jpg)
+ <use plots/p2c.jpeg>
+Package pdftex.def Info: plots/p2c.jpeg used on input line 116.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--123
+
+ []
+
+[7 <./plots/p1g.jpeg> <./plots/p1h.jpeg>] [8 <./plots/p2a.jpeg> <./plots/p2b.jp
+eg>]
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
+
+ []
+
+<plots/p2i.jpeg, id=50, 525.965pt x 434.62375pt>
+File: plots/p2i.jpeg Graphic file (type jpg)
+ <use plots/p2i.jpeg>
+Package pdftex.def Info: plots/p2i.jpeg used on input line 133.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2k.jpeg, id=51, 525.965pt x 434.62375pt>
+File: plots/p2k.jpeg Graphic file (type jpg)
+ <use plots/p2k.jpeg>
+Package pdftex.def Info: plots/p2k.jpeg used on input line 135.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2j.jpeg, id=52, 525.965pt x 434.62375pt>
+File: plots/p2j.jpeg Graphic file (type jpg)
+ <use plots/p2j.jpeg>
+Package pdftex.def Info: plots/p2j.jpeg used on input line 137.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2d.jpeg, id=53, 525.965pt x 434.62375pt>
+File: plots/p2d.jpeg Graphic file (type jpg)
+ <use plots/p2d.jpeg>
+Package pdftex.def Info: plots/p2d.jpeg used on input line 146.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2f.jpeg, id=54, 525.965pt x 434.62375pt>
+File: plots/p2f.jpeg Graphic file (type jpg)
+ <use plots/p2f.jpeg>
+Package pdftex.def Info: plots/p2f.jpeg used on input line 148.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p2e.jpeg, id=55, 525.965pt x 434.62375pt>
+File: plots/p2e.jpeg Graphic file (type jpg)
+ <use plots/p2e.jpeg>
+Package pdftex.def Info: plots/p2e.jpeg used on input line 150.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+ [9 <./plots/p2c.jpeg>] [10 <./plots/p2i.jpeg> <./plots/p2k.jpeg>] [11 <./plots
+/p2j.jpeg> <./plots/p2d.jpeg>] <plots/p2g.jpeg, id=65, 525.965pt x 434.62375pt>
+File: plots/p2g.jpeg Graphic file (type jpg)
+
+<use plots/p2g.jpeg>
+Package pdftex.def Info: plots/p2g.jpeg used on input line 162.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+ <plots/p2h.jpeg, id=66, 525.965pt x 434.62375pt>
+File: plots/p2h.jpeg Graphic file (type jpg)
+
+<use plots/p2h.jpeg>
+Package pdftex.def Info: plots/p2h.jpeg used on input line 164.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--169
+
+ []
+
+[12 <./plots/p2f.jpeg> <./plots/p2e.jpeg>]
+<plots/p3a.jpeg, id=70, 525.965pt x 434.62375pt>
+File: plots/p3a.jpeg Graphic file (type jpg)
+ <use plots/p3a.jpeg>
+Package pdftex.def Info: plots/p3a.jpeg used on input line 179.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p3b.jpeg, id=71, 525.965pt x 434.62375pt>
+File: plots/p3b.jpeg Graphic file (type jpg)
+ <use plots/p3b.jpeg>
+Package pdftex.def Info: plots/p3b.jpeg used on input line 184.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--187
+
+ []
+
+[13 <./plots/p2g.jpeg> <./plots/p2h.jpeg>]
+<plots/p3c.jpeg, id=76, 525.965pt x 434.62375pt>
+File: plots/p3c.jpeg Graphic file (type jpg)
+ <use plots/p3c.jpeg>
+Package pdftex.def Info: plots/p3c.jpeg used on input line 196.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--203
+
+ []
+
+[14 <./plots/p3a.jpeg> <./plots/p3b.jpeg>]
+<plots/p3d.jpeg, id=80, 525.965pt x 434.62375pt>
+File: plots/p3d.jpeg Graphic file (type jpg)
+ <use plots/p3d.jpeg>
+Package pdftex.def Info: plots/p3d.jpeg used on input line 205.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--211
+
+ []
+
+[15 <./plots/p3c.jpeg> <./plots/p3d.jpeg>]
+<plots/p3e.jpeg, id=84, 525.965pt x 434.62375pt>
+File: plots/p3e.jpeg Graphic file (type jpg)
+ <use plots/p3e.jpeg>
+Package pdftex.def Info: plots/p3e.jpeg used on input line 213.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--216
+
+ []
+
+<plots/p3f.jpeg, id=85, 525.965pt x 434.62375pt>
+File: plots/p3f.jpeg Graphic file (type jpg)
+ <use plots/p3f.jpeg>
+Package pdftex.def Info: plots/p3f.jpeg used on input line 225.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/p3g.jpeg, id=86, 525.965pt x 434.62375pt>
+File: plots/p3g.jpeg Graphic file (type jpg)
+ <use plots/p3g.jpeg>
+Package pdftex.def Info: plots/p3g.jpeg used on input line 230.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--236
+
+ []
+
+[16 <./plots/p3e.jpeg>] <plots/p4a.jpeg, id=90, 525.965pt x 434.62375pt>
+File: plots/p4a.jpeg Graphic file (type jpg)
+
+<use plots/p4a.jpeg>
+Package pdftex.def Info: plots/p4a.jpeg used on input line 252.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--253
+
+ []
+
+[17 <./plots/p3f.jpeg> <./plots/p3g.jpeg>]
+<plots/p4b.jpeg, id=94, 525.965pt x 434.62375pt>
+File: plots/p4b.jpeg Graphic file (type jpg)
+ <use plots/p4b.jpeg>
+Package pdftex.def Info: plots/p4b.jpeg used on input line 268.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--273
+
+ []
+
+[18 <./plots/p4a.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 274--277
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--285
+
+ []
+
+[19 <./plots/p4b.jpeg>] [20] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 1642 strings out of 494985
+ 23666 string characters out of 6180356
+ 77399 words of memory out of 5000000
+ 4835 multiletter control sequences out of 15000+600000
+ 6983 words of font info for 25 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 37i,6n,24p,243b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (20 pages, 2088582 bytes).
+PDF statistics:
+ 144 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+

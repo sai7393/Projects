@@ -1,0 +1,3 @@
+with open('gen') as fp:
+    for line in fp:
+        print "hows going buddy"
