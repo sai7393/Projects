@@ -1,0 +1,780 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.4)  8 MAY 2015 00:20
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 4 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(./report.aux)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+
+Overfull \hbox (47.21829pt too wide) in paragraph at lines 13--13
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
+
+ []
+
+<plots/ques1a.jpeg, id=1, 525.965pt x 434.62375pt>
+File: plots/ques1a.jpeg Graphic file (type jpg)
+ <use plots/ques1a.jpeg>
+Package pdftex.def Info: plots/ques1a.jpeg used on input line 26.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 34.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./plots/ques1a.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+
+ []
+
+<plots/q4b.jpeg, id=11, 525.965pt x 434.62375pt>
+File: plots/q4b.jpeg Graphic file (type jpg)
+ <use plots/q4b.jpeg>
+Package pdftex.def Info: plots/q4b.jpeg used on input line 59.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--60
+
+ []
+
+[2 <./plots/q4b.jpeg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 64.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+<plots/q4a.jpeg, id=19, 525.965pt x 434.62375pt>
+File: plots/q4a.jpeg Graphic file (type jpg)
+ <use plots/q4a.jpeg>
+Package pdftex.def Info: plots/q4a.jpeg used on input line 68.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q4c.jpeg, id=20, 525.965pt x 434.62375pt>
+File: plots/q4c.jpeg Graphic file (type jpg)
+ <use plots/q4c.jpeg>
+Package pdftex.def Info: plots/q4c.jpeg used on input line 70.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--71
+
+ []
+
+<plots/q4d.jpeg, id=21, 525.965pt x 434.62375pt>
+File: plots/q4d.jpeg Graphic file (type jpg)
+ <use plots/q4d.jpeg>
+Package pdftex.def Info: plots/q4d.jpeg used on input line 75.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q4e.jpeg, id=22, 525.965pt x 434.62375pt>
+File: plots/q4e.jpeg Graphic file (type jpg)
+ <use plots/q4e.jpeg>
+Package pdftex.def Info: plots/q4e.jpeg used on input line 77.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--78
+
+ []
+
+[3 <./plots/q4a.jpeg> <./plots/q4c.jpeg>]
+<plots/q4f.jpeg, id=26, 525.965pt x 434.62375pt>
+File: plots/q4f.jpeg Graphic file (type jpg)
+ <use plots/q4f.jpeg>
+Package pdftex.def Info: plots/q4f.jpeg used on input line 82.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q4g.jpeg, id=27, 525.965pt x 434.62375pt>
+File: plots/q4g.jpeg Graphic file (type jpg)
+ <use plots/q4g.jpeg>
+Package pdftex.def Info: plots/q4g.jpeg used on input line 84.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--85
+
+ []
+
+[4 <./plots/q4d.jpeg> <./plots/q4e.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 86--91
+
+ []
+
+<plots/q5b.jpeg, id=31, 525.965pt x 434.62375pt>
+File: plots/q5b.jpeg Graphic file (type jpg)
+ <use plots/q5b.jpeg>
+Package pdftex.def Info: plots/q5b.jpeg used on input line 98.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--99
+
+ []
+
+[5 <./plots/q4f.jpeg> <./plots/q4g.jpeg>]
+<plots/q5a.jpeg, id=35, 525.965pt x 434.62375pt>
+File: plots/q5a.jpeg Graphic file (type jpg)
+ <use plots/q5a.jpeg>
+Package pdftex.def Info: plots/q5a.jpeg used on input line 107.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q5c.jpeg, id=36, 525.965pt x 434.62375pt>
+File: plots/q5c.jpeg Graphic file (type jpg)
+ <use plots/q5c.jpeg>
+Package pdftex.def Info: plots/q5c.jpeg used on input line 109.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--110
+
+ []
+
+[6 <./plots/q5b.jpeg> <./plots/q5a.jpeg>]
+<plots/q5d.jpeg, id=40, 525.965pt x 434.62375pt>
+File: plots/q5d.jpeg Graphic file (type jpg)
+ <use plots/q5d.jpeg>
+Package pdftex.def Info: plots/q5d.jpeg used on input line 114.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q5e.jpeg, id=41, 525.965pt x 434.62375pt>
+File: plots/q5e.jpeg Graphic file (type jpg)
+ <use plots/q5e.jpeg>
+Package pdftex.def Info: plots/q5e.jpeg used on input line 116.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--117
+
+ []
+
+[7 <./plots/q5c.jpeg> <./plots/q5d.jpeg>]
+<plots/q5f.jpeg, id=46, 525.965pt x 434.62375pt>
+File: plots/q5f.jpeg Graphic file (type jpg)
+ <use plots/q5f.jpeg>
+Package pdftex.def Info: plots/q5f.jpeg used on input line 121.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+<plots/q5g.jpeg, id=47, 525.965pt x 434.62375pt>
+File: plots/q5g.jpeg Graphic file (type jpg)
+ <use plots/q5g.jpeg>
+Package pdftex.def Info: plots/q5g.jpeg used on input line 123.
+(pdftex.def)             Requested size: 210.38226pt x 173.8464pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--124
+
+ []
+
+[8 <./plots/q5e.jpeg> <./plots/q5f.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 141--157
+
+ []
+
+[9 <./plots/q5g.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 158--162
+
+ []
+
+<plots/5-a.jpeg, id=54, 644.4075pt x 488.82625pt>
+File: plots/5-a.jpeg Graphic file (type jpg)
+ <use plots/5-a.jpeg>
+Package pdftex.def Info: plots/5-a.jpeg used on input line 167.
+(pdftex.def)             Requested size: 257.75844pt x 195.52702pt.
+
+<plots/5-b.jpeg, id=55, 644.4075pt x 488.82625pt>
+File: plots/5-b.jpeg Graphic file (type jpg)
+ <use plots/5-b.jpeg>
+Package pdftex.def Info: plots/5-b.jpeg used on input line 170.
+(pdftex.def)             Requested size: 257.75844pt x 195.52702pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
+
+ []
+
+[10 <./plots/5-a.jpeg>] <plots/5-c.jpeg, id=59, 644.4075pt x 488.82625pt>
+File: plots/5-c.jpeg Graphic file (type jpg)
+
+<use plots/5-c.jpeg>
+Package pdftex.def Info: plots/5-c.jpeg used on input line 175.
+(pdftex.def)             Requested size: 257.75844pt x 195.52702pt.
+ <plots/5-d.jpeg, id=60, 644.4075pt x 488.82625pt>
+File: plots/5-d.jpeg Graphic file (type jpg)
+
+<use plots/5-d.jpeg>
+Package pdftex.def Info: plots/5-d.jpeg used on input line 178.
+(pdftex.def)             Requested size: 257.75844pt x 195.52702pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--179
+
+ []
+
+[11 <./plots/5-b.jpeg> <./plots/5-c.jpeg>]
+<plots/5-e.jpeg, id=64, 447.6725pt x 481.8pt>
+File: plots/5-e.jpeg Graphic file (type jpg)
+ <use plots/5-e.jpeg>
+Package pdftex.def Info: plots/5-e.jpeg used on input line 183.
+(pdftex.def)             Requested size: 179.06583pt x 192.71658pt.
+
+<plots/5-f.jpeg, id=65, 447.6725pt x 481.8pt>
+File: plots/5-f.jpeg Graphic file (type jpg)
+ <use plots/5-f.jpeg>
+Package pdftex.def Info: plots/5-f.jpeg used on input line 186.
+(pdftex.def)             Requested size: 179.06583pt x 192.71658pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--187
+
+ []
+
+[12 <./plots/5-d.jpeg> <./plots/5-e.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 189--193
+
+ []
+
+<plots/d11.png, id=69, 481.8pt x 481.8pt>
+File: plots/d11.png Graphic file (type png)
+ <use plots/d11.png>
+Package pdftex.def Info: plots/d11.png used on input line 200.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+<plots/d14.png, id=71, 481.8pt x 481.8pt>
+File: plots/d14.png Graphic file (type png)
+ <use plots/d14.png>
+Package pdftex.def Info: plots/d14.png used on input line 202.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--203
+
+ []
+
+[13 <./plots/5-f.jpeg>] <plots/d12.png, id=76, 481.8pt x 481.8pt>
+File: plots/d12.png Graphic file (type png)
+
+<use plots/d12.png>
+Package pdftex.def Info: plots/d12.png used on input line 210.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+ <plots/d15.png, id=77, 481.8pt x 481.8pt>
+File: plots/d15.png Graphic file (type png)
+
+<use plots/d15.png>
+Package pdftex.def Info: plots/d15.png used on input line 212.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--213
+
+ []
+
+[14 <./plots/d11.png> <./plots/d14.png>]
+<plots/d13.png, id=83, 481.8pt x 481.8pt>
+File: plots/d13.png Graphic file (type png)
+ <use plots/d13.png>
+Package pdftex.def Info: plots/d13.png used on input line 220.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+<plots/d16.png, id=84, 481.8pt x 481.8pt>
+File: plots/d16.png Graphic file (type png)
+ <use plots/d16.png>
+Package pdftex.def Info: plots/d16.png used on input line 222.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--223
+
+ []
+
+[15 <./plots/d12.png> <./plots/d15.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 224--229
+
+ []
+
+[16 <./plots/d13.png> <./plots/d16.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 238--244
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--262
+
+ []
+
+<plots/Q6a.jpeg, id=95, 447.6725pt x 481.8pt>
+File: plots/Q6a.jpeg Graphic file (type jpg)
+ <use plots/Q6a.jpeg>
+Package pdftex.def Info: plots/Q6a.jpeg used on input line 264.
+(pdftex.def)             Requested size: 179.06583pt x 192.71658pt.
+
+<plots/Q6b.jpeg, id=96, 447.6725pt x 481.8pt>
+File: plots/Q6b.jpeg Graphic file (type jpg)
+ <use plots/Q6b.jpeg>
+Package pdftex.def Info: plots/Q6b.jpeg used on input line 265.
+(pdftex.def)             Requested size: 179.06583pt x 192.71658pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 266--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--282
+
+ []
+
+[18 <./plots/Q6a.jpeg> <./plots/Q6b.jpeg>]
+<plots/7_1a.png, id=103, 481.8pt x 481.8pt>
+File: plots/7_1a.png Graphic file (type png)
+ <use plots/7_1a.png>
+Package pdftex.def Info: plots/7_1a.png used on input line 286.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+
+<plots/7_1d.png, id=104, 481.8pt x 481.8pt>
+File: plots/7_1d.png Graphic file (type png)
+ <use plots/7_1d.png>
+Package pdftex.def Info: plots/7_1d.png used on input line 289.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--291
+
+ []
+
+[19 <./plots/7_1a.png>] <plots/7_1b.png, id=110, 481.8pt x 481.8pt>
+File: plots/7_1b.png Graphic file (type png)
+
+<use plots/7_1b.png>
+Package pdftex.def Info: plots/7_1b.png used on input line 295.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+ <plots/7_1c.png, id=111, 481.8pt x 481.8pt>
+File: plots/7_1c.png Graphic file (type png)
+
+<use plots/7_1c.png>
+Package pdftex.def Info: plots/7_1c.png used on input line 298.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 292--299
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--299
+
+ []
+
+[20 <./plots/7_1d.png>] [21 <./plots/7_1b.png>]
+<plots/7_1e.png, id=120, 481.8pt x 481.8pt>
+File: plots/7_1e.png Graphic file (type png)
+ <use plots/7_1e.png>
+Package pdftex.def Info: plots/7_1e.png used on input line 303.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 300--304
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--304
+
+ []
+
+[22 <./plots/7_1c.png>] <plots/7_1f.png, id=125, 481.8pt x 481.8pt>
+File: plots/7_1f.png Graphic file (type png)
+
+<use plots/7_1f.png>
+Package pdftex.def Info: plots/7_1f.png used on input line 334.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+ <plots/7_1g.png, id=126, 481.8pt x 481.8pt>
+File: plots/7_1g.png Graphic file (type png)
+
+<use plots/7_1g.png>
+Package pdftex.def Info: plots/7_1g.png used on input line 337.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 331--338
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--338
+
+ []
+
+[23 <./plots/7_1e.png>] [24 <./plots/7_1f.png>]
+<plots/7h.png, id=135, 481.8pt x 481.8pt>
+File: plots/7h.png Graphic file (type png)
+ <use plots/7h.png>
+Package pdftex.def Info: plots/7h.png used on input line 342.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 339--343
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--343
+
+ []
+
+[25 <./plots/7_1g.png (PNG copy)>] <plots/7_2a.png, id=140, 481.8pt x 481.8pt>
+File: plots/7_2a.png Graphic file (type png)
+
+<use plots/7_2a.png>
+Package pdftex.def Info: plots/7_2a.png used on input line 372.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+ <plots/7_2d.png, id=141, 481.8pt x 481.8pt>
+File: plots/7_2d.png Graphic file (type png)
+
+<use plots/7_2d.png>
+Package pdftex.def Info: plots/7_2d.png used on input line 375.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--377
+
+ []
+
+[26 <./plots/7h.png>] [27 <./plots/7_2a.png>]
+<plots/7_2b.png, id=150, 481.8pt x 481.8pt>
+File: plots/7_2b.png Graphic file (type png)
+ <use plots/7_2b.png>
+Package pdftex.def Info: plots/7_2b.png used on input line 381.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+<plots/7_2c.png, id=151, 481.8pt x 481.8pt>
+File: plots/7_2c.png Graphic file (type png)
+ <use plots/7_2c.png>
+Package pdftex.def Info: plots/7_2c.png used on input line 384.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 378--385
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--385
+
+ []
+
+[28 <./plots/7_2d.png>] [29 <./plots/7_2b.png>]
+<plots/7_2e.png, id=160, 481.8pt x 481.8pt>
+File: plots/7_2e.png Graphic file (type png)
+ <use plots/7_2e.png>
+Package pdftex.def Info: plots/7_2e.png used on input line 389.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 386--390
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--390
+
+ []
+
+[30 <./plots/7_2c.png>] <plots/7_2f.png, id=165, 481.8pt x 481.8pt>
+File: plots/7_2f.png Graphic file (type png)
+
+<use plots/7_2f.png>
+Package pdftex.def Info: plots/7_2f.png used on input line 418.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+ <plots/7_2g.png, id=166, 481.8pt x 481.8pt>
+File: plots/7_2g.png Graphic file (type png)
+
+<use plots/7_2g.png>
+Package pdftex.def Info: plots/7_2g.png used on input line 421.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 415--422
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--422
+
+ []
+
+[31 <./plots/7_2e.png>] [32 <./plots/7_2f.png>]
+<plots/7_2h.png, id=176, 481.8pt x 481.8pt>
+File: plots/7_2h.png Graphic file (type png)
+ <use plots/7_2h.png>
+Package pdftex.def Info: plots/7_2h.png used on input line 426.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 423--427
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--427
+
+ []
+
+[33 <./plots/7_2g.png>] <plots/7a.png, id=181, 481.8pt x 481.8pt>
+File: plots/7a.png Graphic file (type png)
+
+<use plots/7a.png>
+Package pdftex.def Info: plots/7a.png used on input line 454.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+ <plots/7d.png, id=182, 481.8pt x 481.8pt>
+File: plots/7d.png Graphic file (type png)
+
+<use plots/7d.png>
+Package pdftex.def Info: plots/7d.png used on input line 457.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--459
+
+ []
+
+[34 <./plots/7_2h.png>] [35 <./plots/7a.png>]
+<plots/7b.png, id=191, 481.8pt x 481.8pt>
+File: plots/7b.png Graphic file (type png)
+ <use plots/7b.png>
+Package pdftex.def Info: plots/7b.png used on input line 463.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+
+<plots/7c.png, id=192, 481.8pt x 481.8pt>
+File: plots/7c.png Graphic file (type png)
+ <use plots/7c.png>
+Package pdftex.def Info: plots/7c.png used on input line 466.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 460--467
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--467
+
+ []
+
+[36 <./plots/7d.png>] [37 <./plots/7b.png>]
+<plots/7e.png, id=202, 481.8pt x 481.8pt>
+File: plots/7e.png Graphic file (type png)
+ <use plots/7e.png>
+Package pdftex.def Info: plots/7e.png used on input line 471.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 468--472
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--472
+
+ []
+
+[38 <./plots/7c.png>] <plots/7f.png, id=207, 481.8pt x 481.8pt>
+File: plots/7f.png Graphic file (type png)
+
+<use plots/7f.png>
+Package pdftex.def Info: plots/7f.png used on input line 498.
+(pdftex.def)             Requested size: 192.71658pt x 192.71658pt.
+ <plots/7g.png, id=208, 481.8pt x 481.8pt>
+File: plots/7g.png Graphic file (type png)
+
+<use plots/7g.png>
+Package pdftex.def Info: plots/7g.png used on input line 501.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 495--502
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--502
+
+ []
+
+[39 <./plots/7e.png>] [40 <./plots/7f.png>]
+File: plots/7h.png Graphic file (type png)
+ <use plots/7h.png>
+Package pdftex.def Info: plots/7h.png used on input line 506.
+(pdftex.def)             Requested size: 337.25769pt x 337.25769pt.
+
+Overfull \hbox (17.25772pt too wide) in paragraph at lines 503--507
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--507
+
+ []
+
+[41 <./plots/7g.png>] [42] [43] (./report.aux) ) 
+Here is how much of TeX's memory you used:
+ 1769 strings out of 494985
+ 25658 string characters out of 6180356
+ 77413 words of memory out of 5000000
+ 4936 multiletter control sequences out of 15000+600000
+ 7602 words of font info for 27 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 37i,8n,24p,243b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (43 pages, 2345022 bytes).
+PDF statistics:
+ 258 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
+
