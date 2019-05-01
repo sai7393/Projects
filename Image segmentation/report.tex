@@ -1,0 +1,194 @@
+\documentclass{acm}
+%\usepackage{tablefootnote}
+
+\usepackage{caption}
+\usepackage{color}
+
+%\DeclareCaptionType{copyrightbox}
+
+\usepackage{makecell}
+\usepackage{etoolbox}
+\usepackage{multirow}
+
+\usepackage{hyperref}
+
+\newcommand{\ignore}[1]{}
+\newcommand{\pnote}[1]{{\color{blue} Prabhanjan's note: #1}}
+\newcommand{\snote}[1]{{\color{red} Saikrishna's note: #1}}
+\newcommand{\anote}[1]{{\color{green} Aashith's note: #1}}
+
+\title{A Graph Min-Cut Approach to Interactive Image Segmentation }
+
+\numberofauthors{1} 
+\author{\alignauthor Prabhanjan Ananth, Saikrishna Badrinarayanan, Aashith Kamath \\
+\affaddr{Department of Computer Science,} \\ \affaddr{ University of California, Los Angeles, USA} \\
+\email{prabhanjan@cs.ucla.edu,bsaikrishna7393@gmail.com,aashith\_kamath@hotmail.com}
+} 
+
+\newcommand{\setpixels}{\mathcal{P}}
+\newcommand{\setobj}{\mathcal{O}}
+\newcommand{\setbck}{\mathcal{B}}
+\newcommand{\obj}{\mathsf{obj}}
+\newcommand{\background}{\mathsf{bck}}
+\newcommand{\setneighbors}{\mathcal{N}}
+\newcommand{\pathgraph}{\mathsf{P}}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+\begin{document}
+
+\maketitle
+
+\pnote{Right now, the author list is in alphabetical order, but we can change it later. }
+
+\abstract{
+Image segmentation deals with the problem of partitioning the images into segments. Image segmentation is said to be interactive if the segmentation process is performed with feedback from the user. In this report, we study one particular approach proposed by Boykov, and Jolly~\cite{BJ01} to solve the interactive image segmentation problem. Boykov-Jolly introduced the technique of graph cuts to achieve the goal of partitioning images into two segments, that they call ``object" and "background". In particular, the problem of interactive segmentation is reduced to the problem of finding graph min-cuts, which is then solved using the max flow algorithm of Boykov, and Kolmogorov~\cite{BK01}. We implement the Boykov-Jolly method and analyze its performance against various test cases. In the process, we study the advantages and drawbacks of this approach. {\color{red} We also extend the method to achieve image segmentation where the number of partitions can be more than two.}\\
+
+%\noindent \pnote{Problem - high level. What do we do in this report -- problem statement, which paper, results, any new observations made. }
+
+\ignore{
+In this project, we focus on achieving interactive image segmentation using graph cuts. In particular we plan to implement the method introduced by Boykov and Jolly [1] which deals with marking the pixels of the images as either being "object" or "background". This is achieved by the user first marking certain pixels as "object? or "background? to provide hard constraints for segmentation. This is followed by specifying additional soft constraints that incorporate both boundary and region information. We resort to graph cuts to find the globally optimal segmentation of the N-dimensional image. 
+
+Objective: By implementing the method in [1], we plan to identify the scenarios where the algorithm does well and where it fails. We also plan to identify places where we can achieve efficiency improvements over the algorithm. Finally, we hope to extend the method to the case where the image can be divided into multiple segments (as against 2 as done in [1]).}
+
+}
+
+\section{Introduction}
+The problem of image segmentation is one of the important problems in computer vision. Image segmentation has various applications, for example, recognizing organs in medical images, detecting weapons in luggages in the airport and so on. In this report, we study how to achieve image segmentation when there is interaction from the user. In particular, we study the approach by Boykov-Jolly~\cite{BJ01} who propose a solution, using the concepts from graph min-cuts, to the interactive image segmentation problem. We note that they describe  They show how to reduce the problem of interactive image segmentation to the problem of finding graph min-cuts. We briefly recall their approach below. More details are provided in Section~\ref{sec:graphcuts}. 
+
+The segmentation process begins by the user first marking some pixels to be either object pixels or background pixels. These are called the hard constraints. Then, the image is modeled as a weighted graph. The weights in the graph are determined based on the initial markings specified by the user and a cost function (also referred to as soft constraints) that is determined based on some a priori knowledge about the images. We later describe the specific cost function used by Boykov-Jolly. Once the weighted graph is constructed, the min-cut of the graph is determined. The min-cut partitions the graph into two components which translates to a partition in the image. It was also shown in Boykov-Jolly that min-cut yields a solution that yields a solution that minimizes the cost function among all the solutions that satisfy the hard constraints. 
+
+\noindent There are alternate methods to achieve image segmentation such as snakes~\cite{KWT88,Cohen91}, deformable templates~\cite{YHC92} and so on. To quote~\cite{BJ01}, these techniques only work for two dimensional images and when the segmentation boundary is one dimensional. 
+
+\paragraph{Implementation}
+NEED TO WRITE SOMETHING HERE. INCLUDE A RESULTS TABLE? 
+  
+
+%\noindent \pnote{Explain the problem in detail- what paper we are going to use to implement: explain a bit about the paper: Main technique used - graph cuts: some amount of background. What we do in this project.} 
+
+
+\section{Interactive graph cuts method}
+\label{sec:graphcuts}
+\noindent We describe the Boykov-Jolly method in the following steps. Recall that in the beginning of the segmentation process, the user marks some pixels to be either object pixels or background pixels. We denote the set of object pixels marked by the user to be $\setobj$ and the set of background pixels to be $\setbck$. 
+
+\paragraph{Cost Function (soft constraints)} The pixels marked by the user alone will not be sufficient for any algorithm to be able to achieve the desired segmentation of the image. Some a priori knowledge about the image is necessary and this is captured in the form of a cost function. Before we describe the cost function, we first give some notation. We use $\setpixels$ to denote the set of all the pixels. The notation $\setneighbors$ to denote the set of all unordered pairs $\{p,q\}$ such that $p$ and $q$ are neighbors~\footnote{Pixel $p$ is neighboring to $q$ if it appears above, left, right, or below $q$. } to each other in the image. For each pixel $p$, we use $A_p$ to be a binary value to indicate whether $p$ is either ``object" or ``background". That is, we assign $A_p$ to be $\obj$ if  $p$ is ``object" and $\background$ otherwise. Two important functions are defined below. Here, $R(A)$ denotes the \textit{region properties term}, while $B(A)$ denotes the \textit{background properties term}. Intuitively, $R_p(\obj)$ (resp., $R_p(\background)$) denotes the penalty of assigning the pixel $p$ to be $\obj$ (resp., $\background$). And, $B_{p,q}$ is interpreted as the penalty of assigning two neighboring pixels to be similar or dissimilar. We later describe how to determine $R(A)$ or $B(A)$.  
+\begin{align}
+R(A) = \sum\limits_{p \in \setpixels} R_p(A_p) 
+\end{align}
+\begin{align}
+B(A) = \sum\limits_{\{p,q\} \in \setneighbors} B_{p,q} \cdot \delta(A_{p},A_{q}),
+\end{align}
+where $\delta(A_p,A_q)=1$ if $A_p \neq A_q$ and 0, otherwise. 
+\par We now describe the cost function, denoted by $E(A)$, as a function of $R(A)$ and $B(A)$: 
+$$E(A)= \lambda \cdot R(A) + B(A) $$
+
+\paragraph{Modeling the image as a weighted graph} In the next step, we model the image as a weighted graph. Given the image, we associate every pixel in the image to a vertex in the graph. We draw an edge between two vertices if their corresponding pixels in the image are neighboring. We further augment the graph by adding two terminal vertices, denoted by $S$ and $T$. Edges from $S$ (resp., $T$) is added to every vertex in the graph. We now add weights to the graph. The weights are determined by Table~\ref{fig:table}. We denote the resulting graph to be $G$. 
+
+
+\begin{table}[ht]
+\begin{tabular}{| c | c | c |}
+  \hline
+  \textbf{edge} & \textbf{weight} & \textbf{for} \\ \hline \hline
+  $\{p,q\}$ & $B_{p,q}$ & $\{p,q\} \in \setneighbors$ \\ \hline
+  \ & $\lambda \cdot R_p$($\background$) & $p \in \setpixels, p \notin \setobj \cup \setbck$  \\ \cline{2-3}
+  $\{p,S\}$ & $K$ & $p \in \setobj$ \\ \cline{2-3}
+  \ & $0$ & $p \in \setbck$ \\
+  \hline
+  \ & $\lambda \cdot R_p$($\obj$) & $p \in \setpixels, p \notin \setobj \cup \setbck$  \\ \cline{2-3}
+  $\{p,T\}$ & $0$ & $p \in \setobj$ \\ \cline{2-3}
+  \ & $K$ & $p \in \setbck$ \\
+  \hline
+\end{tabular}
+\caption{Weights on the edges of the graph are assigned according to the above table. The value $K$ is set to be $\sum_{\{p,q\} \in \setneighbors} {B_{p,q}}+1$. }
+\label{fig:table}
+\end{table}
+
+
+
+\paragraph{Graph min-cut i.e., finding optimal image segmentation} In the final step, we find the min-cut~\footnote{A graph cut is defined to be a set of edges that disconnects the graph into exactly components. And a min-cut is a graph cut such that the sum of the weight of edges in the set is minimum among all the sets of edges corresponding to cuts.} of the graph $G$. It was shown in Boykov-Jolly that the min-cut of $G$ is such that the following properties are satisfied. 
+\begin{enumerate}
+\item For every non-terminal vertex~\footnote{Here, we interchangeably use the same notation for the pixel and its corresponding vertex.} $p$, exactly one of the edges connecting $p$ to the terminal vertices is in the min-cut. 
+\item For every pixel $p$ marked by the user, the edge $(p,S)$ is in the min-cut if $p$ is marked to be object pixel and $(p,T)$ is in the min-cut if $p$ is marked to be background pixel. 
+\end{enumerate}
+\noindent Now that we have the above two properties at hand, we can show that the min-cut gives us an image segmentation -- for every pixel $p$ if $(p,T)$ is in the cut then $p$ is marked to be object pixel and if $(p,S)$ is in the cut then $p$ is marked to be a background pixel. 
+\par Further it was shown that the solution yielded by computing the min-cut is the optimal solution i.e., the one that minimizes the cost function among all the solutions that satisfy the hard constraints. 
+
+\section{Extending Min-Cut Approach to $k$-segmentation}
+\noindent We show how to extend the method presented in the previous section to $k$-image segmentation. That is, we are interested in segmenting the image into $k$ segments (call it $\obj_1,\ldots,\obj_k$) as against 2. To solve this problem we essentially follow the same steps as before. The main change comes in the step when we have to reduce our problem to the min-cut problem. In this case, we construct a weighted graph with $k$ terminals from the given image. We then reduce our problem to a \textit{mutliway-cut} problem, that can be seen as a generalization of the $s-t$ mincut problem. The multiway-cut problem is in general NP-hard but we consider an approximation algorithm~\cite{} with factor slightly less than 2. The details of the approach is given below. 
+\par At the beginning of the image segmentation process, the user chooses some pixels to indicate which pixels correspond to which segment. We use $\setobj_i$ to denote the set of pixels the user marks corresponding to $\obj_i$. 
+
+\noindent \textbf{Step 1: Determining the cost function}: We use the exact same cost function as described in the previous section. Our cost function is 
+$$E(A)= \lambda \cdot R(A) + B(A), $$
+where $R(A)$ and $B(A)$ are as defined in Section~\ref{sec:graph cuts}. However, unlike the previous case, here $A$ takes $k$ values, $\obj_1,\ldots,\obj_k$. \\
+
+\noindent \textbf{Step 2: Modeling the image as a weighted graph}: As before, we associate a vertex in the graph for every pixel in the image. We draw edges between the vertices if the corresponding pixels are neighbors in the image. We then assign $k$ special terminals $S_1,\ldots,S_k$ and then we draw edges from $S_i$ to all the vertices in the graph. In the next stage, we assign weights to the edges in the graph. This is done according to Table~\ref{fig:table1}. 
+
+\begin{table}[ht]
+\begin{tabular}{| c | c | c |}
+  \hline
+  \textbf{edge} & \textbf{weight} & \textbf{for} \\ \hline \hline
+  $\{p,q\}$ & $B_{p,q}$ & $\{p,q\} \in \setneighbors$ \\ \hline
+  \ & $\lambda \cdot \sum_{i=2}^{k} R_p$($\obj_i$) & $p \in \setpixels, p \notin \cup_{i=1}^{k} \setobj_i$  \\ \cline{2-3}
+  $\{p,S_1\}$ & $K$ & $p \in \setobj_1$ \\ \cline{2-3}
+ \ & $\vdots$ & $\vdots$ \\ \cline{2-3}
+  \ & $0$ & $p \in \setobj_k$ \\
+  \hline
+  \vdots & \vdots & \vdots \\
+  \hline
+  \ & $\lambda \cdot \sum_{i=1}^{k-1} R_p$($\obj_k$) & $p \in \setpixels, p \notin \cup_{i=1}^{k} \setobj_i$  \\ \cline{2-3}
+  $\{p,S_k\}$ & $0$ & $p \in \setobj_1$ \\ \cline{2-3}
+  \ & $\vdots$ & $\vdots$ \\ \cline{2-3}
+  \ & $K$ & $p \in \setobj_k$ \\
+  \hline
+\end{tabular}
+\caption{Weights on the edges of the graph are assigned according to the above table. The value $K$ is set to be $\sum_{\{p,q\} \in \setneighbors} {B_{p,q}}+1$.}
+\label{fig:table1}
+\end{table} 
+
+\noindent \textbf{Step 3: Finding image segmentation via multiway cut}: In the last step, we show that a multiway cut of the graph yields an image segmentation. A $k$-mutliway cut of a graph with $k$ terminal nodes consists of a set of edges of minimum weight that (pairwise) separates all the terminal nodes. However, the multiway-cut problem is NP-complete and hence we resort to an approximation algorithm. 
+\par More precisely, we can show that the multiway cut of the graph derived from the image has the following properties. These properties are the same as stated in Section~\ref{sec:graph cuts}. 
+\begin{enumerate}
+
+\item For every non-terminal vertex $p$, exactly one of the edges connecting $p$ to the terminal vertices is in the multiway-cut. 
+\item For every pixel $p$ marked by the user, the edges $(p,\{S_j\}_{j \neq i})$ are in the min-cut if $p$ is marked to be $\obj_i$, for every $i \in \{1,\ldots,k\}$. 
+
+\end{enumerate}
+
+\noindent Once we have both the properties, we can now show that a multiway cut of the graph yields us an image segmentation. For every pixel $p$, let $i$, be such that the edge $(p,S_i)$ is not in the multiway cut. In this case, we assign $p$ to be $\obj_i$. The first property ensures that there is a unique such $i$ for every pixel. The second property ensures that all the pixels are assigned to some segment.   
+\par We can show that, on the lines of Boykov-Jolly, the multiway cut even yields an optimal image segmentation. However, as mentioned before, we cannot implement the multiway cut directly since it is NP-complete. But instead we can implement an $(2-\frac{2}{k})$-approximation algorithm of multiway cut ({\color{red} Need to be careful here.. need to show that even the solution returned by the approximation algorithm satisfies the above two properties. }) as given in~\cite{}. 
+
+\section{Implementation}
+
+\paragraph{Min-cut/ Max-flow algorithm} Recall that in the algorithm described in the previous section, we had to compute min-cut of the graph $G$ as described in the previous section. This is performed by executing the maxflow algorithm, proposed by Boykov, Kolmogorov \cite{BK01}, on $G$, where $S$ denotes the source and $T$ denotes the sink\footnote{Recall that $S$ and $T$ are the terminal vertices in the graph $G$.}.The algorithm as described in~\cite{BK01} has three main stages, namely, the growth stage, augmentation stage and adoption stage. In addition, there is an initialization stage that initializes the data structures. The max-flow algorithm involves repeating these stages in order until the maximum flow is computed. We only give an overview of the three stages. A more detailed description can be found in~\cite{BK01}. 
+
+\noindent Initialization stage: At every stage in the process, a set of active vertices are maintained. This active set is initialized to $\{S,T\}$. Further, we maintain two search trees throughout the process and we call it the $S$-search tree and the $T$-search tree. A vertex either belongs to the $S$-search tree or $T$-search tree or it does not belong to any tree. 
+
+\noindent \textbf{Growth stage:} In this stage, the two search trees are expanded until they meet at a common edge. That is, the neighbors of an active vertex, say $u$, is explored until it hits an active vertex belonging to the other search tree. At this point, we have found a path from $S$ to $T$ and so, we move to the augmentation stage. If no such neighbor exists then $u$ is set to be inactive and all its neighbors are set to be active vertices that are then going to be used for further exploration. 
+
+\noindent \textbf{Augmentation stage:} Once we get a path from $S$ to $T$ in the growth stage, denoted by $\pathgraph$, we perform the augmentation stage. In this stage, we choose the minimum weight edge on the path $\pathgraph$. Denote this weight by $w$. We then reduce the weight of all the edges on this path by $w$. This leaves one of the edges, say $e=(a,b)$, on this path to be saturated. We then mark $b$ to be an ``orphan" vertex, if $b$ is farther away from $S$ than $a$ on $\pathgraph$. Further, we mark $b$ to be inactive if it is marked to be active in the growth stage. We then move to the adoption stage. 
+
+\noindent \textbf{Adoption stage:} As the name suggests, this stage involves the orphan vertex created in the augmentation stage to be adopted by a different vertex. More precisely, for the orphan vertex $b$ created earlier we find a new parent in either of the search trees. If a parent can be found then we attach $b$ to the corresponding search tree and then continue the execution by going back to the growth stage. If no such parent can be found then it then becomes a free vertex in which case all of its children ({\pnote: need to define what is a parent and a child}) are also now marked as free vertices. \\
+
+\noindent The algorithm terminates if the search trees $S$ and $T$ are separated by just saturated edges. 
+
+\paragraph{System specifications}
+
+\paragraph{Data Structures used}
+
+mention how do we go about solving the problem at hand, mention the data structures used? 
+
+\section{Results}
+- test cases
+- 
+
+\section{Conclusion}
+
+\bibliographystyle{alpha}
+\bibliography{rep}
+
+
+\end{document}

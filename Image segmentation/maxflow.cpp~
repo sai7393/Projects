@@ -1,0 +1,71 @@
+# include<iostream>
+# include<stdio.h>
+# include<limits.h>
+# include<string.h>
+# include<queue>
+# include<set>
+using namespace std;
+ 
+// Number of vertices in given graph
+#define n 6
+
+bool visited[n];
+int i,j=0,k=0;
+
+
+int maxflow(int graph[n][n], int s, int t)
+{
+	int S[n],T[n], A[n], O[n];
+	S[0] = s;
+	T[0] = t;
+	A[0] = s;
+	A[1] = t;
+	
+	
+	
+	while(true)
+	{
+		//	grow S or T to find an augmenting path P from s to t
+	/*	while A = ∅
+		pick an active node p ∈ A
+		for every neighbor q such that tree cap(p → q) > 0
+		if T REE(q) = ∅ then add q to search tree as an active node:
+		T REE(q) := T REE(p), P ARENT (q) := p, A := A ∪ {q}
+		if T REE(q) = ∅ and T REE(q) = T REE(p) return P = P AT H s→t
+		end for
+		remove p from A
+		end while		
+		*/
+		
+		
+		
+		
+				
+		
+		
+		//if P = ∅ terminate
+		
+		
+		
+		//augment on P
+		
+		
+		//adopt orphans
+	}
+	return 0;
+}
+
+int main()
+{
+    
+    int graph[n][n] = { {0, 16, 13, 0, 0, 0},
+                        {0, 0, 10, 12, 0, 0},
+                        {0, 4, 0, 0, 14, 0},
+                        {0, 0, 9, 0, 0, 20},
+                        {0, 0, 0, 7, 0, 4},
+                        {0, 0, 0, 0, 0, 0}
+                      };
+ 
+    printf("The maximum flow is %d \n",maxflow(graph, 0, 5));
+ }
+
