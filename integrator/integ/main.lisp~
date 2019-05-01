@@ -1,0 +1,55 @@
+
+(load 'basicOp.lisp)
+(load 'integration.lisp)
+(load 'diff.lisp)
+
+(setf exp1 1 )
+
+
+(print (differ '("Log" ("Plus" ("Vari" (x 3 2 4)) ("Vari" (x 1 1 0)) ) )))
+(print 123)
+
+(print (integ '("Times" ("Vari" (x 1 2 0)) ("Vari" (x 1 -1 2)) )))
+
+;(print (integ '("Times" ("Plus" ("Times" ("Const" (2)) ("Log" ("Cos" ("Vari" (X 2 1 4)))))
+; ("Times" ("Vari" (X 2 1 4))
+ ; ("Div"
+  ; ("Times" ("Const" (-1)) ("Times" ("Const" (2)) ("Cos" ("Vari" (X 2 1 4)))))
+   ;("Cos" ("Vari" (X 2 1 4)))))) ("Times"  ("Vari" (x 2 1 4)) ("Log"("Cos" ("Vari" (X 2 1 4))))  ))))
+;(print (integ '( "Times" ("Sin" ("Vari" (x 4 1 0))) ( "Times" ("Const" (4) )  ("Cos" ("Vari" (x 4 1 0)  )   )           ) )))
+;(print (integ '("Times" ("Times" ("Vari" (X 2 1 0)) ("Exp" ("Vari" (X 1 2 0)) E))  ("Exp" ("Vari" (x 1 2 0)) e) )))
+;(print (integ '("Times" ("Vari" (x 1 1 0)) ("Times" ("Exp" ("Vari" (x 2 1 4) ) e ) ("Vari" (x 1 2 6)) ))))
+(print 123)
+;(print (integ '("Power" ("MINUS" ("Const" (1)) ("Vari" (X 1 2 43)) ) ("Const" (-0.5)))))
+
+;(print (integ '("Power" ("MINUS" ("Const" (-1)) ("Vari" (X -1 2 43)) ) ("Const" (-0.5)))))            ;; for cos-1 pls to not change.
+
+
+;(print (integ '("Power" ("PLUS" ("Const" (-4)) ("Vari" (X -1 2 43)) ) ("Const" (-1)))))
+
+
+;(print (integ '("Times" ("Cos" ("Vari" (x 2 1 0))) ("Sin" ("Vari" (x 1 2 0 )) ))))
+;
+;
+;(print (integ '("Div" ("Cos" ("Vari" (x 1 1 0)) )  ( "Sin" ("Vari" ( x 1 1 0 ))))))
+;(print (integ '("Exp" ("Vari" (x 4 1 0))e)))
+;(print 123)
+;(print (integ '("Times" ("Exp" ("Vari" (x 2 1 4) ) ) ("Vari" (x 1 1 6)) )))
+;(print 123)
+;(print  (integ '("Times" ("Vari" (x 7 1 0)) ("Vari" (x 3 2 0))  )))
+;(print (integ '("Log" ("Sec" ("Vari" (X 4 1 3))))))
+;(print  (integ '("Tan" ("Vari"(x 4 1 3)))))
+;(print 123)
+;(print (integ '("Times" ("Const" (-4)) ("Sec" ("Vari" (X 4 1))) ("Tan" ("Vari" (X 4 1))))))
+
+;(print (integ '("Log" ("Sin" ("Vari" (X 4 1))))))
+;(print (integ '("Times" ("Sin" ("Vari" (X 1 1 0)))  ("Cos" ("Vari" (X 1 1 0)))               )))
+;
+;(print (differ '("Log" ("Plus" ("Sec" ("Vari" (X 4 1))) ("Tan" ("Vari" (X 4 1)))))) )
+
+;(print (integ '( "Power" ( "Cosec" ( "Vari" ( x 2 1) )) ( "Const"  (2) ) )))
+;(print 123)
+;(print  (differ '("Times"  ("Vari" (x 2 4)) ("Const" (1)) ) ))
+;(print 123)
+;( print  (integ '("Times" ("Exp" ("Vari" (x 4 1) )) ("Sin" ("Vari" (x 3 1)))))) 
+;(print 123)

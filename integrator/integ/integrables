@@ -1,0 +1,34 @@
+;any variable 'x' here is actually (ax + c)
+;each line their corresponding variations with constants added etc will also work
+
+polyonomials :
+addition, subtraction of polynomials
+
+
+trigonometric:
+sin(x)
+cos (x)
+tan (x)
+cot (x)
+sec(x)
+cosec(x)
+sec^2 (x)
+cosec^2 (x)
+1/ sqrt( 1 - x^2 )
+1/ sqrt ( -1 - (- x^2))
+1/ ( 1 + x^2)
+-1 / (1 + x^2)
+  
+asin (x)
+acos (x)
+ 
+ exp:
+ 
+ 
+ log :
+ 
+ 
+by parts ( specifically , normal byparts and things of the form f(x) * f'(x))
+divide ( f'(x) / f(x))  
+
+will poly division in single degree work, because 
